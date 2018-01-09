@@ -16,8 +16,6 @@ for cve in data['CVE_Items']:
     # Get the CVE ID
     print (Extractor.Get_CVE_ID(cve))
 
-
-
     # Get the vendor names to check
     for vendors_affected in Extractor.Get_Vendor_Name(cve):
         print(vendors_affected)
