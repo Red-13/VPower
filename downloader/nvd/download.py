@@ -8,6 +8,7 @@ def download_definitions(target_directory, url_array):
 
     # Iterate through the url array downloading each zip file
     for url in url_array['urls']:
+        print("Downloading from {}".format(url))
         # Split the url by the seperator
         url_split = url.split('/')
         # Get the last element in the url
