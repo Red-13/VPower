@@ -7,11 +7,8 @@
 import urllib.request
 import zipfile
 
-class UpdateVulDB:
-    def download(self, file_url_path, file_name):
-        urllib.request.urlretrieve(file_url_path, file_name)
-        if "zip" in file_name:
-            self.unzip(file_url_path, file_name)
-    
-    def unzip(self, file_url_path, file_name):
-        zipfile.ZipFile(file_name).extractall()
+def download(file_url_path, file_name):
+    urllib.request.urlretrieve(file_url_path, file_name)
+
+def unzip(file_name, folder_output_name):
+    zipfile.ZipFile(file_name).extractall(folder_output_name)

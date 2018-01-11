@@ -1,0 +1,6 @@
+{
+  "urls":[
+    "https://static.nvd.nist.gov/feeds/xml/cve/2.0/nvdcve-2.0-2002.xml.zip",
+    "https://static.nvd.nist.gov/feeds/xml/cve/2.0/nvdcve-2.0-2003.xml.zip"
+  ]
+}

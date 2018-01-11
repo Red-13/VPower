@@ -11,3 +11,7 @@ def iterate_directory(rootdir, filter = None):
                 file_list.append(filepath)
 
     return file_list
+
+def create_directory(directory):
+    if not os.path.exists(directory):
+        os.makedirs(directory)

@@ -1,5 +1,0 @@
-# sample calling python code
-# below codes instantiate a new object that download file, if will auto unzip the file and place in the same directory
-
-uvdb = UpdateVulDB()
-uvdb.download("https://static.nvd.nist.gov/feeds/xml/cve/2.0/nvdcve-2.0-2002.xml.zip", "nvdcve-2.0-2002.xml.zip")
