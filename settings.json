@@ -2,6 +2,7 @@
   "application_name":"vpower",
   "collection_name":"vuln",
   "json_folder":"C:\\Users\\abc\\Downloads\\JSONFILES",
+  "download_files":false,
   "mongo_settings":{
     "ip":"localhost",
     "port":"27017"

@@ -9,12 +9,14 @@ settings_file = 'settings.json'
 settings = json_loader.load_from_file(settings_file)
 settings_mongo = settings['mongo_settings']
 
-# Load List of targets to download
-download_urls = 'download_urls.json'
-urls = json_loader.load_from_file(download_urls)
+# If there is a need to download files, set 'true' in settings.json
+if(settings['download_files']):
+    # Load List of targets to download
+    download_urls = 'download_urls.json'
+    urls = json_loader.load_from_file(download_urls)
 
-# Download all the JSON files first
-downloader.download_definitions(settings['json_folder'], urls)
+    # Download all the JSON files first
+    downloader.download_definitions(settings['json_folder'], urls)
 
 # Connect to MongoDB
 mongo_client = mongo.connect_mongodb(settings_mongo['ip'], settings_mongo['port'])
