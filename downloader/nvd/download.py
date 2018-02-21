@@ -1,4 +1,4 @@
-import downloader.nvd.UpdateVulDB as downloader
+import downloader.Common as common
 import library.file as file
 import os
 
@@ -16,8 +16,8 @@ def download_definitions(target_directory, url_array):
         # Generate the output file name
         output_filepath = os.path.join(target_directory, filename)
         # Download the file
-        downloader.download(url, output_filepath)
+        common.download(url, output_filepath)
         # Unzip the file, to the same directory
-        downloader.unzip(output_filepath, target_directory)
+        common.unzip(output_filepath, target_directory)
         # Remove the downloaded zip file
         os.remove(output_filepath)

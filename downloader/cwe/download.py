@@ -1,17 +1,15 @@
-
-# coding: utf-8
-
-# In[49]:
-
-
 ###############################################################
-# A simple retrieval of NIST Vul DB into local machine
+# A simple retrieval of CWE into local machine
 # Auto unzip file if file extension is zip
 # TODO: include more data feeds
 # TODO: exception handling
 ###############################################################
 import urllib.request
 import zipfile
+from xml.dom.minidom import parse
+from json import dumps
+from xmljson import badgerfish as bf
+from xml.etree.ElementTree import fromstring
 
 class UpdateVulDB:
     def download(self, file_url_path, file_name):
@@ -21,11 +19,13 @@ class UpdateVulDB:
     
     def unzip(self, file_url_path, file_name):
         zipfile.ZipFile(file_name).extractall()
-
-
-# In[48]:
-
+        
+    def convertXMLtoJSON(self, file_xml_path, file_json_path):
+        dom1 = parse(file_xml_path)
+        with open(file_json_path, "w") as text_file:
+            text_file.write(dumps(bf.data(fromstring(dom1.toxml()))))
 
 uvdb = UpdateVulDB()
-uvdb.download("https://static.nvd.nist.gov/feeds/json/cve/1.0/nvdcve-1.0-2018.json.zip", "nvdcve-1.0-2018.json.zip")
+uvdb.download("http://cwe.mitre.org/data/xml/cwec_v3.0.xml.zip", "cwec_v3.0.xml.zip")
+uvdb.convertXMLtoJSON("C:\\Users\\win7\\cwec_v3.0.xml", "C:\\Users\\win7\\cwec_v3.0.json")
 
